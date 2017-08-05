@@ -4,7 +4,7 @@ import java.awt.*;
 /**
  * Created by Namila on 7/25/2017.
  */
-public class Main {
+public class Fractal {
 
 
     public static void main(String[] args) {
