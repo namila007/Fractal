@@ -1,3 +1,8 @@
+package UI;
+
+import Core.AbstractFractal;
+import Core.ColourPoint;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -9,8 +14,10 @@ public class FractalPanel extends JPanel {
     FractalPoints fractalPoints;
 
     public FractalPanel(AbstractFractal fractal){
-         setSize(new Dimension(fractal.frame_height,fractal.frame_height));
+
        this.fractal=fractal;
+        setSize(new Dimension(fractal.frame_height,fractal.frame_height));
+
 
     }
 
@@ -18,8 +25,8 @@ public class FractalPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        for (int x = 0; x <= 800; x++){
-            for (int y = 0; y <= 800; y++){
+        for (int x = 0; x <= fractal.frame_height; x++){
+            for (int y = 0; y <= fractal.frame_width; y++){
                 ColourPoint colourPoint=fractal.setPoints(x,y,fractal.getRealX(),fractal.getImagY());
                 g.setColor(fractal.colourFractal(colourPoint.getIteration(),colourPoint.getZabs()));
 

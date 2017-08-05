@@ -1,3 +1,5 @@
+package Core;
+
 import com.sun.glass.ui.Size;
 
 import javax.swing.*;
@@ -52,15 +54,15 @@ public abstract class AbstractFractal {
     }
 
     public Complex getComplexPoint(int x, int y){
-        real=real_min+ (double)x * (real_max - real_min)/800;
-        imag=imag_max-(double)y * (imag_max - imag_min)/800;
+        real=real_min+ (double)x * (real_max - real_min)/this.frame_width;
+        imag=imag_max-(double)y * (imag_max - imag_min)/this.frame_height;
 
         return new Complex(real,imag);
 
     }
 
 
-    abstract ColourPoint setPoints(int zx,int zy,double cx,double cy);
+    public abstract ColourPoint setPoints(int zx, int zy, double cx, double cy);
 
 
 
@@ -68,10 +70,14 @@ public abstract class AbstractFractal {
             float red ,green, blue,count;
 
              count = (float)(iteration + 5- HALF_LOG - (Math.log(Math.log(z))/LOG_2)*(LOG_2));
-
-             red = (float)(Math.sin(0.693f *count + 6f) * 128f + 127f);
+            /*
+            red = (float)(Math.sin(0.693f *count + 6f) * 128f + 127f);
              green = (float)(Math.cos(0.5f * count+ 4f) * 128f + 127f);
              blue = (float)(Math.cos(0.005f * count + 0.16f) * 128f + 127f);
+             */
+             red = (float)(Math.cos(0.125f *count + 8.6f) * 128f + 127f);
+             green = (float)(Math.sin(0.45f * count+ 4f) * 128f + 127f);
+             blue = (float)(Math.sin(0.005f * count + 0.016f) * 128f + 127f);
              return new Color(clampBetween((int)red,0,255),clampBetween((int) green,0,255), clampBetween((int)blue,0,255));
 
         }

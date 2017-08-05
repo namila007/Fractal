@@ -1,3 +1,9 @@
+package Core;
+
+import Core.AbstractFractal;
+import Core.ColourPoint;
+import Core.Complex;
+
 /**
  * Created by Namila on 8/3/2017.
  */
@@ -10,12 +16,12 @@ private Complex C;
         this.C=new Complex(realX,imagY);
     }
 
-    public ColourPoint getJulia(int zx,int zy,double cx,double cy){
+    public ColourPoint getJulia(int zx, int zy, double cx, double cy){
         return getIterations(getComplexPoint(zx,zy),new Complex(cx,cy));
     }
 
     @Override
-    ColourPoint setPoints(int zx, int zy, double cx, double cy) {
+    public ColourPoint setPoints(int zx, int zy, double cx, double cy) {
         return getIterations(getComplexPoint(zx,zy),new Complex(cx,cy));
     }
 }

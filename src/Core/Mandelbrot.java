@@ -1,3 +1,9 @@
+package Core;
+
+import Core.AbstractFractal;
+import Core.ColourPoint;
+import Core.Complex;
+
 /**
  * Created by Namila on 7/25/2017.
  */
@@ -14,7 +20,7 @@ public class Mandelbrot extends AbstractFractal {
 
 
     @Override
-    ColourPoint setPoints(int zx, int zy, double cx, double cy) {
+    public ColourPoint setPoints(int zx, int zy, double cx, double cy) {
         return getIterations(new Complex(0d,0d),getComplexPoint(zx,zy));
 
     }
