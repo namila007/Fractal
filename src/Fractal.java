@@ -123,11 +123,7 @@ public class Fractal {
                 }
 
         }
-        else {
-            System.out.println("Less or too much arguments");
-            System.out.println("Enter -h for help");
-            System.exit(1);
-        }
+
 
 
         fractalWindow = new FractalWindow(title,fractal);
