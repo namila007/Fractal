@@ -75,10 +75,11 @@ public abstract class AbstractFractal {
              green = (float)(Math.cos(0.5f * count+ 4f) * 128f + 127f);
              blue = (float)(Math.cos(0.005f * count + 0.16f) * 128f + 127f);
              */
-             red = (float)(Math.cos(0.125f *count + 8.6f) * 128f + 127f);
-             green = (float)(Math.sin(0.45f * count+ 4f) * 128f + 127f);
-             blue = (float)(Math.sin(0.005f * count + 0.016f) * 128f + 127f);
-             return new Color(clampBetween((int)red,0,255),clampBetween((int) green,0,255), clampBetween((int)blue,0,255));
+            red = (float)(Math.cos((double)(0.125F * count + 8.6F)) * 128.0D + 127.0D);
+            green = (float)(Math.sin((double)(0.45F * count + 4.0F)) * 128.0D + 127.0D);
+             blue = (float)(Math.sin((double)(0.005F * count + 0.016F)) * 128.0D + 127.0D);
+
+           return new Color(clampBetween((int)red,0,255),clampBetween((int) green,0,255), clampBetween((int)blue,0,255));
 
         }
 

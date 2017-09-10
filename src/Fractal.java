@@ -13,7 +13,7 @@ public class Fractal {
 
 
     public static void main(String[] args) {
-         int frame_height=1000,frame_width=1000,max_iterate=100;
+         int frame_height=800,frame_width=800,max_iterate=1000;
          double real_max=1,real_min=-1,imag_max=1,imag_min=-1;
          double realX=-0.4 ,imagY=0.6;
          String title="Fractals";
@@ -45,7 +45,7 @@ public class Fractal {
             }
         }
 
-        if (args.length >= 1 && args.length<7) {
+        if (args.length >= 0 && args.length<7) {
 
             if (args[0].equals("Mandelbrot") || args[0].equals("mandelbrot")) {
 
@@ -55,72 +55,84 @@ public class Fractal {
 
                             if (args[1]!=null) {
                                 real_min = Double.parseDouble(args[1]);
-                            } else real_min = -1.0;
+                            }// else real_min = -1.0;
                             if (!args[2].isEmpty()) {
                                 real_max = Double.parseDouble(args[2]);
-                            } else real_max = 1.0;
+                            } //else real_max = 1.0;
                             if (!args[3].isEmpty()) {
                                 imag_min = Double.parseDouble(args[3]);
-                            } else imag_min = -1.0;
+                            } //else imag_min = -1.0;
                             if (!args[4].isEmpty()) {
                                 imag_max = Double.parseDouble(args[4]);
-                            } else imag_max = 1.0;
+                            } //else imag_max = 1.0;
 
                         } else if(args.length==6) {
                             if (args[1]!=null) {
                                 real_min = Double.parseDouble(args[1]);
-                            } else real_min = -1.0;
+                            }// else real_min = -1.0;
                             if (!args[2].isEmpty()) {
                                 real_max = Double.parseDouble(args[2]);
-                            } else real_max = 1.0;
+                            } //else real_max = 1.0;
                             if (!args[3].isEmpty()) {
                                 imag_min = Double.parseDouble(args[3]);
-                            } else imag_min = -1.0;
+                            } //else imag_min = -1.0;
                             if (!args[4].isEmpty()) {
                                 imag_max = Double.parseDouble(args[4]);
-                            } else imag_max = 1.0;
+                            } //else imag_max = 1.0;
                             if (args[5] != null) {
                                 max_iterate = Integer.parseInt(args[5]);
-                            } else max_iterate = 1000;
+                            } //else max_iterate = 1000;
 
                         }
-                        else
-                         {
-                            real_min = -1.0;
-                            real_max = 1.0;
-                            imag_min = -1.0;
-                            imag_max = 1.0;
-                             max_iterate = 1000;
-
-                        }
+//                        else
+//                         {
+//                            real_min = -1.0;
+//                            real_max = 1.0;
+//                            imag_min = -1.0;
+//                            imag_max = 1.0;
+//                             max_iterate = 1000;
+//
+//                        }
 
                     }catch (NumberFormatException e) {
                     System.out.println(e);
-                }
+                }finally {
+                        fractal=new Mandelbrot(frame_height,frame_width,real_max,real_min,imag_max,imag_min,max_iterate);
 
-                    fractal=new Mandelbrot(frame_height,frame_width,real_max,real_min,imag_max,imag_min,max_iterate);
-                }
+                    }
+
+                    }
                 else if(args[0].equals("Julia") || args[0].equals("julia")){
-                    try{
-                    title="Julia Fractal";
+                    try {
+                        title = "Julia Fractal";
+                        if (args.length == 4){
+                            if (args[1] != null) {
 
-                    if(!args[1].isEmpty()) {
-
-                            realX = Double.parseDouble(args[1]);
-
-                    }else System.out.println("Enter Real Boundary for C");
-                    if(!args[2].isEmpty()) {
-
+                                realX = Double.parseDouble(args[1]);
+                            }
+                            //else {realX = -0.4;}
+                        if (args[2] != null) {
                             imagY = Double.parseDouble(args[2]);
-                        }else System.out.println("Enter Imaginary Boundary for C");
+                        }
+                        //else {imagY = 0.6;}
+                        if (args[3] != null) {
+                            max_iterate = Integer.parseInt(args[3]);
+                        }
+                    }else if(args.length!=0 && args.length>4)showErrors();
 
-                    fractal=new Julia(frame_height,frame_width,real_max,real_min,imag_max,imag_min,max_iterate,realX,imagY);
+
 
                     }catch (NumberFormatException e){ System.out.println(e);}
+                    finally {
 
-            }else{
-                    System.out.println("Enter Mandelbrot or Julia for print or to get more options -help");
-                }
+                        fractal=new Julia(frame_height,frame_width,real_max,real_min,imag_max,imag_min,max_iterate,realX,imagY);
+                    }
+
+            }
+
+        }
+        else{
+            showErrors();
 
         }
 
@@ -132,4 +144,10 @@ public class Fractal {
 
        fractalWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
+
+    private static void showErrors(){
+        System.out.println("Enter Mandelbrot or Julia for print or to get more options -help");
+        System.exit(0);
+    }
+
 }
