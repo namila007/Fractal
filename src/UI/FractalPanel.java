@@ -36,4 +36,8 @@ public class FractalPanel extends JPanel {
 
 
     }
+
+    public void setFractal(AbstractFractal fractal) {
+        this.fractal = fractal;
+    }
 }

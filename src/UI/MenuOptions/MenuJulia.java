@@ -90,4 +90,26 @@ public class MenuJulia extends JPanel {
     private JTextField imagx;
     private JLabel label3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
+
+
+    public void setRealx(double realx) {
+        this.realx.setText(realx+"");
+    }
+
+
+
+    public void setImagx(double x) {
+        this.imagx.setText(x+"");
+    }
+
+    public double[] getValues(){
+        double[] values={Double.parseDouble(realx.getText()),Double.parseDouble(imagx.getText())};
+        return values;
+    }
+
+    public void setValues(double real_x,double imag_x){
+        realx.setText(real_x+"");
+        imagx.setText(imag_x+"");
+    }
+
 }

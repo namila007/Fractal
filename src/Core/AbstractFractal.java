@@ -1,8 +1,5 @@
 package Core;
 
-import com.sun.glass.ui.Size;
-
-import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -14,6 +11,35 @@ public abstract class AbstractFractal {
     private int max_iterate;
     private double real_max,real_min,imag_max,imag_min;
     private double realX,imagY,real,imag;
+
+    public int getMax_iterate() {
+        return max_iterate;
+    }
+
+    public double getReal_max() {
+        return real_max;
+    }
+
+    public double getReal_min() {
+        return real_min;
+    }
+
+    public double getImag_max() {
+        return imag_max;
+    }
+
+    public double getImag_min() {
+        return imag_min;
+    }
+
+    public double getReal() {
+        return real;
+    }
+
+    public double getImag() {
+        return imag;
+    }
+
     private Complex z;
     private static double LOG_2=1/Math.log(2);
     private static double HALF_LOG=Math.log(0.5)*LOG_2;

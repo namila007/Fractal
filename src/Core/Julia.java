@@ -1,9 +1,5 @@
 package Core;
 
-import Core.AbstractFractal;
-import Core.ColourPoint;
-import Core.Complex;
-
 /**
  * Created by Namila on 8/3/2017.
  */
