@@ -10,16 +10,21 @@ import java.awt.*;
  * Created by Namila on 7/25/2017.
  */
 public class Fractal {
+    private final int MENUPANEL_WIDTH=406;
 
 
     public static void main(String[] args) {
          int frame_height=800,frame_width=800,max_iterate=1000;
          double real_max=1,real_min=-1,imag_max=1,imag_min=-1;
          double realX=-0.4 ,imagY=0.6;
-         String title="Fractals";
+         String title=" Mandelbrot Fractals";
 
         AbstractFractal fractal=new Mandelbrot(frame_height,frame_width,real_max,real_min,imag_max,imag_min,max_iterate);
         FractalWindow fractalWindow;
+
+
+
+
         for(String n:args){
             if(n.equals("mandelbrot") || n.equals("Mandelbrot")) {
                 for (String k : args)
@@ -44,8 +49,11 @@ public class Fractal {
                 System.exit(1);
             }
         }
+        if(args.length==0){
+            fractal=new Mandelbrot(frame_height,frame_width,real_max,real_min,imag_max,imag_min,max_iterate);
 
-        if (args.length >= 0 && args.length<7) {
+        }
+        else if (args.length > 0 && args.length<7) {
 
             if (args[0].equals("Mandelbrot") || args[0].equals("mandelbrot")) {
 
@@ -84,16 +92,7 @@ public class Fractal {
                             } //else max_iterate = 1000;
 
                         }
-//                        else
-//                         {
-//                            real_min = -1.0;
-//                            real_max = 1.0;
-//                            imag_min = -1.0;
-//                            imag_max = 1.0;
-//                             max_iterate = 1000;
 //
-//                        }
-
                     }catch (NumberFormatException e) {
                     System.out.println(e);
                 }finally {
@@ -139,10 +138,9 @@ public class Fractal {
 
 
         fractalWindow = new FractalWindow(title,fractal);
-        fractalWindow.setSize(new Dimension(frame_width,frame_height));
-       fractalWindow.setVisible(true);
-
-       fractalWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        fractalWindow.setSize(new Dimension(frame_width+400,frame_height));
+        fractalWindow.setVisible(true);
+        fractalWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     private static void showErrors(){

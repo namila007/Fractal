@@ -1,0 +1,66 @@
+JFDML JFormDesigner: "6.0.2.0.116" Java: "1.8.0_112-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :::p, par l {seq {comp label6:::::x, space :p:48:p}, comp label4::l:p:165:p, par t:l {par t:::p {comp label7::l::165:x, comp label5::l::165:x}, par t {comp label1::l:p:147:p, comp label2::l:p:147:p, comp label3::l:p:147:p, comp label8::l:p:165:p}}}, par t:::p {comp imag_min::l:p:173:p, par t:l {comp realx::t:p:173:p, par t:t {comp real_max::l:p:173:p, comp real_min::l:p:173:p, comp imag_max::l:p:173:p, comp imagx::l:p:173:p}}}, space ::26:x}}"
+			"$verticalGroup": "par l {seq l {space :p:11:p, comp label5:::p::p, space :::p, par l {seq {comp label1:::p::p, space :p:24:p, comp label2:::p::p, space :p:30:p, comp label3:::p::p, space :p:30:p, comp label4:::p::p, space :p:34:p, comp label6:::p::p, space :p:26:p, comp label7:::p::p, space :p:30:p, comp label8:::p::p}, seq {comp real_max:::p::p, space u:::p, comp real_min:::p::p, space s:::p, comp imag_max:::p::p, space :p:24:p, comp imag_min:::p::p, space :67:67:p, comp realx:::p::p, space s:::p, comp imagx:::p::p}}, space ::44:x}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Real Max"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "real_max"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Real Min"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "real_min"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Imaginary Max"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "imag_max"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Imaginary Min"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "imag_min"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "Region of interest:"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "Values"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "Real"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "realx"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label8"
+				"text": "Imaginary"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "imagx"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 247, 298 )
+		} )
+	}
+}

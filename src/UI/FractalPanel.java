@@ -11,13 +11,13 @@ import java.awt.*;
  */
 public class FractalPanel extends JPanel {
     AbstractFractal fractal;
-    FractalPoints fractalPoints;
 
     public FractalPanel(AbstractFractal fractal){
 
        this.fractal=fractal;
+       setPreferredSize(new Dimension(800, 800));
         setSize(new Dimension(fractal.frame_height,fractal.frame_height));
-
+        revalidate();
 
     }
 
