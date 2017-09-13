@@ -1,0 +1,34 @@
+JFDML JFormDesigner: "6.0.2.0.116" Java: "1.8.0_112-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:15:p, par t {seq {comp label3:::p:110:p, space :18:18:p, comp imagx:::p:140:p}, par l {seq {comp label2:::p:110:p, space s:::p, comp realx:::p:140:p}, comp label1:::p:113:p}}, space ::66:x}}"
+			"$verticalGroup": "par l {seq l {space :p:17:p, comp label1:::p::p, space u:::p, par b {comp realx::b:p::p, comp label2::b:p::p}, space s:::p, par l {seq l {space :6:6:p, comp label3:::p::p}, comp imagx:::p::p}, space ::91:x}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "realx"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Values"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Real"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "imagx"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Imaginary"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 233, 158 )
+		} )
+	}
+}

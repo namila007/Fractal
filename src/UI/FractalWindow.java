@@ -1,7 +1,9 @@
 package UI;
 
 import Core.AbstractFractal;
-import UI.FractalPanel;
+import UI.MenuOptions.MainMenu;
+
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,9 +18,12 @@ public class FractalWindow extends JFrame {
     public FractalWindow(String title, AbstractFractal fractal){
 
         setTitle(title);
-        setSize(new Dimension(fractal.frame_width,fractal.frame_height));
 
         FractalPanel fractalPanel = new FractalPanel(fractal);
-        add(fractalPanel);
+        getContentPane().add(fractalPanel, BorderLayout.LINE_START);
+        MainMenu mainMenu=new MainMenu(fractalPanel,fractal,this);
+        getContentPane().add(mainMenu);
+
+
     }
 }
