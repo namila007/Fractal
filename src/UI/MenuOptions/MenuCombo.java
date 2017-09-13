@@ -8,7 +8,7 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * @author Gonaz Gamz
+ * @author Namila Bandara
  */
 public class MenuCombo extends JPanel {
     private JPanel panel1;
@@ -60,10 +60,6 @@ public class MenuCombo extends JPanel {
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license -
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 
 
     public void setTextField1(int iterations) {

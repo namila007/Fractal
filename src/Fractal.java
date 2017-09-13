@@ -14,27 +14,31 @@ public class Fractal {
 
 
     public static void main(String[] args) {
+        //setting static variables
         AbstractFractal fractal=null;
          int frame_height=800,frame_width=800,max_iterate=1000;
          double real_max=1,real_min=-1,imag_max=1,imag_min=-1;
          double realX=-0.4 ,imagY=0.6;
-         String title=" Mandelbrot Fractals";
+        String title="";
          FractalWindow fractalWindow;
 
 
 
         if(args.length==0){
+            //if there is no args mandelbrot is default
+            title="Mandelbrot Fractal";
             fractal=new Mandelbrot(frame_height,frame_width,real_max,real_min,imag_max,imag_min,max_iterate);
 
         }
         else if (args.length > 0 && args.length<7) {
-            helpInfo(args);
-            if (args[0].equals("Mandelbrot") || args[0].equals("mandelbrot")) {
+            //if more args
+            helpInfo(args); //searching for help options
 
+            if (args[0].equals("Mandelbrot") || args[0].equals("mandelbrot")) {
+                    //if arg[0] matches mandelbrot
                     title="Mandelbrot Fractal";
                     try {
                         if(args.length==5){
-
                             if (args[1]!=null) {
                                 real_min = Double.parseDouble(args[1]);
                             }
@@ -65,16 +69,14 @@ public class Fractal {
                                 max_iterate = Integer.parseInt(args[5]);
                             }
 
-                        }
-//
+                        }else if(args.length!=0 &&(args.length<5 || args.length>6))showErrors();
                     }catch (NumberFormatException e) {
                     System.out.println(e);
                 }finally {
+                        //creating mandelbrot fractal
                         fractal=new Mandelbrot(frame_height,frame_width,real_max,real_min,imag_max,imag_min,max_iterate);
-
                     }
-
-                    }
+            }
                 else if(args[0].equals("Julia") || args[0].equals("julia")){
                     try {
                         title = "Julia Fractal";
@@ -82,7 +84,6 @@ public class Fractal {
                             if (args[1] != null) realX = Double.parseDouble(args[1]);
                             if (args[2] != null)imagY = Double.parseDouble(args[2]);
                             if (args[3] != null)max_iterate = Integer.parseInt(args[3]);
-
                         }
                         else if(args.length!=0 && args.length>4)showErrors();
                     }catch (NumberFormatException e){ System.out.println(e);}
@@ -100,7 +101,7 @@ public class Fractal {
         }
 
 
-
+        //creating fractal frame
         fractalWindow = new FractalWindow(title,fractal);
         fractalWindow.setSize(new Dimension(frame_width+MENUPANEL_WIDTH,frame_height));
         fractalWindow.setVisible(true);

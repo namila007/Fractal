@@ -20,9 +20,9 @@ import java.awt.event.ItemListener;
 public class MainMenu extends JPanel implements ItemListener, ActionListener {
     private final static String MANDELBROT="Mandelbrot";
     private final static String JULIA="Julia";
-    public MenuCombo menuCombo;
-    public MenuJulia menuJulia;
-    public  MenuMandel menuMandel;
+    private MenuCombo menuCombo;
+    private MenuJulia menuJulia;
+    private MenuMandel menuMandel;
     private JPanel cardboard;
     private String fractal_model="Mandelbrot";
     private FractalPanel fractalPanel;
@@ -45,32 +45,46 @@ public class MainMenu extends JPanel implements ItemListener, ActionListener {
         cardboard.add(menuMandel,MANDELBROT);
         cardboard.add(menuJulia,JULIA);
 
+        if(abstractFractal instanceof  Julia){
+            menuCombo.getComboBox1().setSelectedIndex(1);
+            setJulia();
+
+        }
+        else if(abstractFractal instanceof  Mandelbrot){
+
+            menuCombo.getComboBox1().setSelectedIndex(0);
+            setMandelbrot();
+        }
+
 
     }
 
     private void initialise(){
+        //initializing all;
         menuCombo=new MenuCombo();
         menuJulia=new MenuJulia();
         menuMandel=new MenuMandel();
         menuCombo.getComboBox1().addItemListener(this);
 
         menuCombo.getGenerate().addActionListener(this);
-        setMandelbrot();
-        setJulia();
+
 
     }
 
 
     @Override
     public void itemStateChanged(ItemEvent e) {
+        //when combobox change this is fired
         CardLayout cardboardLayout = (CardLayout)(cardboard.getLayout());
         cardboardLayout.show(cardboard, (String)e.getItem());
         fractal_model=e.getItem().toString();
+
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        //when generate button clicked
          if(fractal_model.equals("Mandelbrot"))  {
              double []values=menuMandel.getValues();
 
@@ -92,12 +106,14 @@ public class MainMenu extends JPanel implements ItemListener, ActionListener {
     }
 
     private void setMandelbrot() {
+        //getting values from mandelbrot and set values
         menuCombo.setTextField1(abstractFractal.getMax_iterate());
         menuMandel.setAllValues(abstractFractal.getImag_min(),abstractFractal.getImag_max(),abstractFractal.getReal_min(),abstractFractal.getReal_max());
 
     }
 
     private void setJulia(){
+        //getting values from julia and set values
         menuCombo.setTextField1(abstractFractal.getMax_iterate());
         menuJulia.setValues(abstractFractal.getRealX(),abstractFractal.getImagY());
     }
