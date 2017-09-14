@@ -4,7 +4,10 @@ Can create Mandelbrot and Julia fractals
 
 
 Run>
-java Fractal -h  
+'java Fractal -h'  for help.default mandelbrot is set.
+
+![screenshot_2](https://user-images.githubusercontent.com/18147085/30410903-6daeda88-992b-11e7-8570-5ea1fcdd7f0e.jpg)
+![screenshot_3](https://user-images.githubusercontent.com/18147085/30410906-70c460da-992b-11e7-911d-a38e48dcf6e6.jpg)
 
 ## Madelbrot set:
 You should be able to set the iterations and the region of interest from the command-line by passing
