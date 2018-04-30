@@ -3,3 +3,15 @@ jdk: oraclejdk8
 
 script:
   - ant compile
+
+deploy:
+  # GitHub - Add zip to release
+  - provider: releases
+    api_key: ${key}
+    file: /home/travis/build/namila007/Fractal/bin
+    skip_cleanup: true
+    on:
+      tags:
+    all_branches: true
+    on_success: always
+    on_failure: never  
