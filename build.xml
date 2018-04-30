@@ -1,14 +1,17 @@
 <project default="compile">
-    <target name="init">
-        <mkdir dir="build/classes"/>
-        <mkdir dir="dist"/>
-    </target>
     
-    <target name="compile" depends="init">
+    
+    <target name="compile" >
+        <mkdir dir="build/classes"/>
         <javac srcdir="src" destdir="build/classes"/>
     </target>
     
-    <target name="compress" depends="compile">
-        <jar destfile="dist/Fractal.jar" basedir="build/classes" />
+    <target name="jar">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/Fractal.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="oata.Fractal"/>
+            </manifest>
+        </jar>
     </target>
 </project>
