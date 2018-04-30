@@ -10,7 +10,7 @@
         <mkdir dir="build/jar"/>
         <jar destfile="build/jar/Fractal.jar" basedir="build/classes">
             <manifest>
-                <attribute name="Main-Class" value="oata.Fractal"/>
+                <attribute name="Main-Class" value="Fractal"/>
             </manifest>
         </jar>
     </target>
