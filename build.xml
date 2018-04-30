@@ -1,14 +1,14 @@
 <project default="compile">
     <target name="init">
-        <mkdir dir="bin"/>
+        <mkdir dir="build/classes"/>
         <mkdir dir="dist"/>
     </target>
     
     <target name="compile" depends="init">
-        <javac srcdir="src" destdir="bin"/>
+        <javac srcdir="src" destdir="build/classes"/>
     </target>
     
     <target name="compress" depends="compile">
-        <jar destfile="dist/Fractal.jar" basedir="bin" />
+        <jar destfile="dist/Fractal.jar" basedir="build/classes" />
     </target>
 </project>
