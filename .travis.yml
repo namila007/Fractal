@@ -9,5 +9,6 @@ deploy:
   - provider: releases
     api_key: ${key}
     file: /home/travis/build/namila007/Fractal/bin
-    
-    
+    skip_cleanup: true
+    on:
+     all_branches: true
