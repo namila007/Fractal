@@ -8,7 +8,7 @@ deploy:
   # GitHub - Add zip to release
   - provider: releases
     api_key: ${key}
-    file: /home/travis/build/namila007/Fractal/bin/dist/Fractal.jar
+    file: /home/travis/build/namila007/Fractal/dist/Fractal.jar
     skip_cleanup: true
     on:
      all_branches: true
