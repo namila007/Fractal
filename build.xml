@@ -1,4 +1,9 @@
 <project default="compile">
+    <target name="init">
+    <mkdir dir="bin" />
+    <mkdir dir="dist" />
+</target>
+    
     <target name="compile">
         <mkdir dir="bin"/>
         <javac srcdir="src" destdir="bin"/>
