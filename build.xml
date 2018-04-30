@@ -3,4 +3,8 @@
         <mkdir dir="bin"/>
         <javac srcdir="src" destdir="bin"/>
     </target>
+    
+    <target name="compress" depends="compile">
+        <jar destfile="dist/Fractal.jar" basedir="bin" />
+</target>
 </project>
